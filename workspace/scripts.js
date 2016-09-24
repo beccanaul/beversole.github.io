@@ -120,7 +120,7 @@ $( document ).ready(function() {
      // but in our case dosent really need to change much
      // if you understand we are creating a virtual camera to look at our scene widt
      // that should be good enough for now
-     camera = new THREE.PerspectiveCamera( 40, scene3dWidth / scene3dHeight, 1, 100 );
+     camera = new THREE.PerspectiveCamera( 40, scene3dWidth / scene3dHeight, 1, 1000 );
      camera.position.z = 400;
 
      // In addition to a camera we need to have a scene
@@ -235,5 +235,11 @@ $( document ).ready(function() {
      $("#divThreeJsStats").html(statsHtm);
 
    }
+var increaseSpeed = function () {
+  
+}
+$( '#addSpeed' ).click(increaseSpeed);
+
+
 
 });
