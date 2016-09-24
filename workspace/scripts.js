@@ -75,6 +75,33 @@ $( document ).ready(function() {
       cube3.color = '008000'; //Green
 
     cubes.push(cube3);
+
+// functions to increase/decrese cube speed
+    var increaseSpeed = function () {
+      cube1.rotateSpeed = cube1.rotateSpeed + .05;
+      cube2.rotateSpeed = cube2.rotateSpeed + .05;
+      cube3.rotateSpeed = cube3.rotateSpeed + .05;
+    }
+
+    var slowerSpeed = function () {
+      cube1.rotateSpeed = cube1.rotateSpeed - .05;
+      cube2.rotateSpeed = cube2.rotateSpeed - .05;
+      cube3.rotateSpeed = cube3.rotateSpeed - .05;
+      if (cube1.rotateSpeed < 0) {
+        cube1.rotateSpeed = 0;
+      }
+      if (cube2.rotateSpeed < 0) {
+        cube2.rotateSpeed = 0;
+      }
+      if (cube3.rotateSpeed < 0) {
+        cube3.rotateSpeed = 0;
+      }
+    }
+
+//increase/decrease on click
+    $( '#addSpeed' ).click(increaseSpeed);
+    $( '#lessSpeed' ).click(slowerSpeed);
+
   }
 
    // This function iterates through our cubes
@@ -121,7 +148,11 @@ $( document ).ready(function() {
      // if you understand we are creating a virtual camera to look at our scene widt
      // that should be good enough for now
      camera = new THREE.PerspectiveCamera( 40, scene3dWidth / scene3dHeight, 1, 1000 );
-     camera.position.z = 400;
+     camera.position.z = 500;
+
+
+
+
 
      // In addition to a camera we need to have a scene
      // this of this like a stage for a play
@@ -235,10 +266,6 @@ $( document ).ready(function() {
      $("#divThreeJsStats").html(statsHtm);
 
    }
-var increaseSpeed = function () {
-  
-}
-$( '#addSpeed' ).click(increaseSpeed);
 
 
 
