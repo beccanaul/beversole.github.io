@@ -78,25 +78,37 @@ $( document ).ready(function() {
 
 // functions to increase/decrese cube speed
     var increaseSpeed = function () {
-      cube1.rotateSpeed = cube1.rotateSpeed + .05;
-      cube2.rotateSpeed = cube2.rotateSpeed + .05;
-      cube3.rotateSpeed = cube3.rotateSpeed + .05;
-    }
+      cubes.forEach(function(cube){
+        cube.rotateSpeed += .05;
+      });
+    };
 
     var slowerSpeed = function () {
-      cube1.rotateSpeed = cube1.rotateSpeed - .05;
-      cube2.rotateSpeed = cube2.rotateSpeed - .05;
-      cube3.rotateSpeed = cube3.rotateSpeed - .05;
-      if (cube1.rotateSpeed < 0) {
-        cube1.rotateSpeed = 0;
-      }
-      if (cube2.rotateSpeed < 0) {
-        cube2.rotateSpeed = 0;
-      }
-      if (cube3.rotateSpeed < 0) {
-        cube3.rotateSpeed = 0;
-      }
-    }
+      cubes.forEach(function(cube){
+        if (cube.rotateSpeed > 0) {
+              cube.rotateSpeed -= .05;
+        }
+        else {
+          cube.rotateSpeed = 0;
+        }
+      });
+    };
+    //
+    //
+    // var slowerSpeed = function () {
+    //   cube1.rotateSpeed = cube1.rotateSpeed - .05;
+    //   cube2.rotateSpeed = cube2.rotateSpeed - .05;
+    //   cube3.rotateSpeed = cube3.rotateSpeed - .05;
+    //   if (cube1.rotateSpeed < 0) {
+    //     cube1.rotateSpeed = 0;
+    //   }
+    //   if (cube2.rotateSpeed < 0) {
+    //     cube2.rotateSpeed = 0;
+    //   }
+    //   if (cube3.rotateSpeed < 0) {
+    //     cube3.rotateSpeed = 0;
+    //   }
+    // }
 
 //increase/decrease on click
     $( '#addSpeed' ).click(increaseSpeed);
